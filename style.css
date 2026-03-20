@@ -1,0 +1,154 @@
+body {
+    background-color: #1c1f2e;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.main-container {
+    text-align: center;
+    max-width: 400px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #4caf50;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+    margin-top: 0;
+}
+
+.content-box {
+    background-color: #fce4ec;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px solid #555;
+}
+
+#question-content img,
+#result-content img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #333;
+    margin: 15px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.yes-btn {
+    background-color: #f48fb1;
+    color: #333;
+}
+
+.no-btn {
+    background-color: #f48fb1;
+    color: #333;
+    position: relative; /* ضروري لتحريك الزر */
+}
+
+.comment-text {
+    background-color: #12141d;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #d0d0d0;
+}
+
+.code-box {
+    background-color: #263238;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.code-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.file-name {
+    color: #d0d0d0;
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+pre {
+    background-color: transparent;
+    border: none;
+    color: #a9b7c6;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.profile span {
+    font-size: 0.9rem;
+    color: #d0d0d0;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    color: #d0d0d0;
+    font-size: 0.9rem;
+}
