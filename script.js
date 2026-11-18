@@ -1,22 +1,26 @@
 const noBtn = document.getElementById('no-btn');
-const yesBtn = document.getElementById('yes-btn'); // تأكد إنك مديله ID في الـ HTML
+const yesBtn = document.getElementById('yes-btn'); // تأكد من إعطاء زر Yes هذا الـ ID في الـ HTML
 const questionContent = document.getElementById('question-content');
 const resultContent = document.getElementById('result-content');
 
-// مصفوفة فيها نصوص بتتغير كل ما يدوس على No
+// مصفوفة بالنصوص المتغيرة كل ما المستخدم يحاول يدوس No
 const noMessages = [
     "لا، فكر تاني! 🥺",
     "متأكد؟! دي الكاميرا مفتوحة 😂",
-    "خلاص، مفيش هرب بقى دوس Yes! 😌"
+    "حرام عليك، دوس Yes بقى! 😭",
+    "بتهزر صح؟ كفاية عناد! 🙄",
+    "خلاص مبقاش فيه أمل فيك.. 💔",
+    "الزرار ده قرب يختفي على فكرة! ⚠️",
+    "أنت الي جبته لنفسك بقى.. باي باي! 👋"
 ];
 
-let clickCount = 0; // عداد لحساب عدد مرات الضغط على No
+let clickCount = 0; // عداد المحاولات
 
 function moveNoButton() {
-    clickCount++; // زيادة عدد المحاولات
+    clickCount++; // زيادة عداد الضغطات
 
-    if (clickCount <= 2) {
-        // لو لسه أول أو تاني مرة، حرك الزرار مكان عشوائي
+    if (clickCount <= 7) {
+        // تحريك الزرار لمكان عشوائي داخل الشاشة
         const maxX = window.innerWidth - noBtn.offsetWidth;
         const maxY = window.innerHeight - noBtn.offsetHeight;
 
@@ -27,20 +31,23 @@ function moveNoButton() {
         noBtn.style.left = randomX + 'px';
         noBtn.style.top = randomY + 'px';
 
-        // تغيير الكلام جوه زرار No حسب المحاولة
-        noBtn.innerText = noMessages[clickCount - 1];
+        // تغيير النص جوه زرار No (بناءً على العداد، ولو زاد عن عدد الرسائل بياخد أخر رسالة)
+        let messageIndex = Math.min(clickCount - 1, noMessages.length - 1);
+        noBtn.innerText = noMessages[messageIndex];
 
-        // تكبير زر الـ Yes شوية مع كل محاولة (بنكبر الـ padding أو الـ font-size)
+        // تكبير زر الـ Yes تدريجياً مع كل محاولة
         let currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-        yesBtn.style.fontSize = (currentSize + 4) + 'px';
+        yesBtn.style.fontSize = (currentSize + 3) + 'px';
         
         let currentPadding = parseFloat(window.getComputedStyle(yesBtn).padding);
         yesBtn.style.padding = (currentPadding + 2) + 'px';
 
     } else {
-        // بعد المرتين، الزرار بيثبت في مكانه ومش بيتحرك تاني، وممكن نثبت رسالة نهائية
-        noBtn.innerText = "خلاص استسلم بقى! 💔";
-        noBtn.style.pointerEvents = 'none'; // بنقفل الـ click عليه نهائي لو حابب
+        // بعد المحاولة السابعة، زر No هيختفي تماماً!
+        noBtn.style.display = 'none';
+        
+        // ممكن كمان نخلي زر Yes ياخد مساحة أكبر أو يلمع
+        yesBtn.style.transform = 'scale(1.1)';
     }
 }
 
